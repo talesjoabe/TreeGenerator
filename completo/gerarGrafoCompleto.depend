@@ -6,3 +6,10 @@
 	<cstdlib>
 	<ctime>
 
+1558658208 source:c:\users\tales\onedrive\desktop\completo\main.cpp
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<ctime>
+	<string>
+
