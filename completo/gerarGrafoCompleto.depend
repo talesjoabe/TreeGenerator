@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1558589318 source:c:\users\tales\onedrive\desktop\hehe\gerargrafocompleto\main.cpp
+	<iostream>
+	<fstream>
+	<cstring>
+	<cstdlib>
+	<ctime>
+
