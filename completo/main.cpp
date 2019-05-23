@@ -20,23 +20,24 @@
 using namespace std;
 
 /*
-    A Struct caminho é composto por duas arestas
+    A Struct aresta é composto por dois vertices
     e um peso. Ao atribuir valores para uma variável
     deste tipo estruturado, estaremos dizendo que há
-    um caminho existente entre a aresta1 e aresta2 e
-    o peso desse caminho é peso.
+    uma aresta existente entre vertice1 e vertice2 e
+    o custo dessa aresta é peso.
 */
-struct caminho{
-    int aresta1;
-    int aresta2;
+struct aresta{
+    int vertice1;
+    int vertice2;
     int peso;
 };
 
 /*
-    A função gerarGrafoCompleto armazena todos os caminhos que um
-    grafo completo de vértices = nV e arestas = nA  no vetor G.
+    A função gerarGrafoCompleto armazena todos as arestas que um
+    grafo completo de vértices = nV e arestas = nA  no vetor do tipo
+    aresta G.
 */
-void gerarGrafoCompleto(caminho G[], int nV, int nA){
+void gerarGrafoCompleto(aresta G[], int nV, int nA){
     srand(time(0));
 
     /* Sabendo que um grafo completo é um grafo simples -
@@ -48,8 +49,8 @@ void gerarGrafoCompleto(caminho G[], int nV, int nA){
     while(aux<nA){
         for(int i=1; i<nV; i++){
             for(int j=i+1;j<=nV;j++){
-                G[aux].aresta1= i;
-                G[aux].aresta2= j;
+                G[aux].vertice1= i;
+                G[aux].vertice2= j;
                 G[aux].peso= rand()%101;
                 aux++;
             }
@@ -63,11 +64,11 @@ void gerarGrafoCompleto(caminho G[], int nV, int nA){
     restas = nA em um arquivo no formato ".in". Onde o nome
     de cada arquivo armazenado será no formato "nVcompleto.in".
     Dentro do arquivo, a primeira linha é o número de vértices.
-    E as linhas posteriores é cada caminho de um grafo completo
-    no seguinte formato: "aresta1 aresta2 peso".
+    E as linhas posteriores é cada aresta de um grafo completo
+    no seguinte formato: "vertice1 vertice2 peso".
 */
 
-void salvarGrafoCompleto(caminho G[], int nV,int nA){
+void salvarGrafoCompleto(aresta G[], int nV,int nA){
     ofstream myfile;
 
     string nome;
@@ -80,7 +81,7 @@ void salvarGrafoCompleto(caminho G[], int nV,int nA){
         myfile << nV<<endl;
 
         for(int i=0; i<nA; i++){
-            myfile << G[i].aresta1 << " " << G[i].aresta2 << " " << G[i].peso << endl;
+            myfile << G[i].vertice1 << " " << G[i].vertice2 << " " << G[i].peso << endl;
         }
 
         myfile.close();
@@ -112,7 +113,7 @@ int main()
     */
     int nA = (nV*(nV-1))/2;
 
-    caminho G[nA];
+    aresta G[nA]; // arestas existentes num grafo completo G
 
     gerarGrafoCompleto(G, nV, nA);
     salvarGrafoCompleto(G, nV,nA);
