@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1558832596 source:/home/tales/TreeGenerator/grid/main.cpp
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<ctime>
+	<cmath>
+	<string>
+
